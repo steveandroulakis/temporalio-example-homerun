@@ -1,3 +1,3 @@
-export async function greet(name: string): Promise<string> {
-  return `Hello, ${name}!`;
+export async function greet(progress: number): Promise<string> {
+  return `${progress * 10}%`;
 }
