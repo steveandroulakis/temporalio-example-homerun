@@ -18,3 +18,9 @@ The batter has to swing at it (send a signal) at the right moment to register a 
 ### Sample Output
 Shell #1 starts the workflow, shell #2 shows the workflow's output, shell #3 sends a signal and receives the hit/miss result.
 ![homerun shell screenshot](https://raw.githubusercontent.com/steveandroulakis/temporalio-example-homerun/main/homerun.png)
+
+### Future enhancements
+- Create a more interesting `Activity` (containing non-deterministic code)
+- Gracefully handle failures (workflow retries, reversal), simulate failures
+- Logic so the closer the swing (signal) is to the 'ball' (70% timer state), the further the hit
+- Find excuse to use `condition`
