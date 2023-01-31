@@ -1,18 +1,16 @@
-# Hello World
+# Homerun
 
-This is the default project that is scaffolded out when you run `npx @temporalio/create@latest ./myfolder`.
+Temporal Example Project.
 
-The [Hello World Tutorial](https://learn.temporal.io/getting_started/typescript/hello_world_in_typescript/) walks through the code in this sample.
+A pitcher throws a ball (starts a task).
 
-### Running this sample
+The batter has to swing at it (send a signal) at the right moment to register a hit!
 
-1. `temporal server start-dev` to start [Temporal Server](https://github.com/temporalio/cli/#installation).
-1. `npm install` to install dependencies.
-1. `npm run start.watch` to start the Worker.
-1. In another shell, `npm run workflow` to run the Workflow Client.
+Pre-requisites:
+- A temporal server (use their [Docker Compose files](https://github.com/temporalio/docker-compose))
+- `npm install` to install dependencies.
 
-The Workflow should return:
-
-```bash
-Hello, Temporal!
-```
+To run the example:
+1. `npm run start.watch` to start the Worker. 
+1. In another shell, run `npm run workflow` to begin the `progress` workflow. The task will start (the ball will be thrown and fly through the air)
+1. In another shell, run `npm run signal` to send a `swing` signal to the workflow. If your signal is received by the workflow when the ball is 70% of the way through the air then you've hit a home run!

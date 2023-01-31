@@ -1,22 +1,20 @@
-import { Connection, Client } from '@temporalio/client';
-import { progress, getProgress } from './workflows';
+import { Client } from '@temporalio/client';
+import { progress } from './workflows';
 
 async function run() {
   const client = new Client();
 
+  // start the task (ball flying through the air for 20 seconds)
   const handle = await client.workflow.start(progress, { taskQueue: 'homerun', workflowId: 'progress-0' });
 
-  // wait 2 seconds before querying the timer
-  await new Promise((resolve) => setTimeout(resolve, 2000));
-  const val = await handle.query(getProgress);
-  // Should print "10", may print another number depending on timing
-  console.log(val);
-
+  console.log('A pitcher has thrown the ball (worker task started).');
+  console.log(`Swing (signal) at it when it's 70% of the way to hit a home run!`);
   await handle.result();
-  console.log('complete');
 }
 
 run().catch((err) => {
-  console.error(err);
+  // console.error(err);
+  // workflow cancelled
+
   process.exit(1);
 });

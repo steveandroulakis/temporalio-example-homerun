@@ -1,3 +1,4 @@
-export async function greet(progress: number): Promise<string> {
+// express progress as a percentage
+export async function progress_percentage(progress: number): Promise<string> {
   return `${progress * 10}%`;
 }
